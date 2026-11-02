@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Federico Roccati</title>
+<meta name="description" content="Federico Roccati, Assistant Professor of Physics at the University of Palermo. Non-Hermitian physics, waveguide QED, giant atoms, topology and open quantum many-body systems.">
+<meta property="og:title" content="Federico Roccati">
+<meta property="og:description" content="Theoretical physics: non-Hermitian physics, waveguide QED, topology and open quantum many-body systems.">
+<meta property="og:type" content="profile">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Federico Roccati","jobTitle":"Assistant Professor of Physics",
+ "affiliation":{"@type":"CollegeOrUniversity","name":"Università degli Studi di Palermo"},
+ "sameAs":["https://scholar.google.com/citations?user=IxH0E2oAAAAJ","https://orcid.org/0000-0002-6981-0613"]}
+</script>
+<style>
+:root{
+  --bg:#fbfaf7; --surface:#ffffff; --ink:#1c1f24; --muted:#5d6470; --faint:#8a909a;
+  --line:#e6e3dc; --accent:#1f5f74; --accent-soft:#e3eef1; --accent-ink:#164a5b;
+  --warm:#b5562b; --warm-soft:#f6e9e1;
+  --body:"Palatino Linotype", "Palatino", "URW Palladio L", "Book Antiqua", "TeX Gyre Pagella", Georgia, serif;
+  --ui:var(--body);
+  --max:1080px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121417; --surface:#1a1d21; --ink:#e7e5e0; --muted:#a3a8b0; --faint:#7b818a;
+    --line:#2b2f35; --accent:#7cc0d4; --accent-soft:#1d3138; --accent-ink:#a6d6e4;
+    --warm:#e08a5f; --warm-soft:#33241d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121417; --surface:#1a1d21; --ink:#e7e5e0; --muted:#a3a8b0; --faint:#7b818a;
+  --line:#2b2f35; --accent:#7cc0d4; --accent-soft:#1d3138; --accent-ink:#a6d6e4;
+  --warm:#e08a5f; --warm-soft:#33241d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:72px}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--body); font-size:18px; line-height:1.6; -webkit-font-smoothing:antialiased}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline; text-underline-offset:3px}
+em{font-style:italic}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
+@media (max-width:640px){ .wrap{padding:0 16px} body{font-size:17px} }
+
+/* nav */
+header.nav{position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex; align-items:center; gap:24px; height:60px}
+.nav .brand{font-family:var(--body); font-weight:600; font-size:19px; color:var(--ink); white-space:nowrap}
+.nav nav{display:flex; gap:4px; margin-left:auto; overflow-x:auto; scrollbar-width:none}
+.nav nav::-webkit-scrollbar{display:none}
+.nav nav a{font-family:var(--ui); font-size:14px; color:var(--muted); padding:6px 10px; border-radius:6px; white-space:nowrap}
+.nav nav a:hover{color:var(--ink); background:var(--accent-soft); text-decoration:none}
+.nav nav a.active{color:var(--accent-ink); background:var(--accent-soft)}
+.theme-btn{font-family:var(--ui); background:none; border:1px solid var(--line); color:var(--muted); border-radius:6px; width:32px; height:32px; cursor:pointer; flex:none}
+.theme-btn:hover{color:var(--ink)}
+@media (max-width:760px){ .nav .brand{display:none} .nav .wrap{gap:8px} .nav nav{margin-left:0} }
+
+/* hero */
+.hero{padding:64px 0 24px}
+.hero-grid{display:grid; grid-template-columns:1fr 240px; gap:48px; align-items:start}
+.hero h1{font-size:48px; line-height:1.1; margin:0 0 8px; font-weight:600; letter-spacing:-0.01em}
+.hero .role{font-family:var(--ui); font-size:15px; color:var(--muted); margin:0 0 24px; line-height:1.5}
+.hero .role strong{color:var(--ink); font-weight:600}
+.hero p.lede{font-size:20px; line-height:1.55; margin:0 0 16px; max-width:640px}
+.hero p{max-width:640px}
+.links{display:flex; flex-wrap:wrap; gap:8px; margin-top:24px}
+.chip{font-family:var(--ui); font-size:13px; font-weight:500; border:1px solid var(--line); background:var(--surface); color:var(--ink); padding:6px 12px; border-radius:999px; display:inline-flex; align-items:center; gap:6px}
+.chip:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
+.portrait{width:240px; aspect-ratio:4/5; border-radius:14px; overflow:hidden; background:var(--accent-soft); display:grid; place-items:center; border:1px solid var(--line)}
+.portrait img{width:100%; height:100%; object-fit:contain; object-position:50% 100%; display:block}
+.portrait .mono{font-size:64px; color:var(--accent); font-weight:600}
+@media (max-width:760px){
+  .hero{padding:40px 0 16px}
+  .hero-grid{grid-template-columns:1fr; gap:24px}
+  .portrait{width:140px; order:-1}
+  .hero h1{font-size:36px}
+  .hero p.lede{font-size:18px}
+}
+
+/* sections */
+section{padding:56px 0; border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+h2{font-size:30px; font-weight:600; margin:0 0 8px; letter-spacing:-0.005em}
+.kicker{font-family:var(--ui); font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--warm); margin:0 0 6px}
+h3{font-size:21px; font-weight:600; margin:0 0 8px; line-height:1.3}
+
+/* news */
+.news{list-style:none; padding:0; margin:0; display:grid; gap:0}
+.news li{display:grid; grid-template-columns:110px 1fr; gap:16px; padding:12px 0; border-bottom:1px dashed var(--line)}
+.news li:last-child{border-bottom:0}
+.news time{font-family:var(--ui); font-size:13px; color:var(--faint); padding-top:3px}
+@media (max-width:640px){ .news li{grid-template-columns:1fr; gap:2px} }
+
+/* research */
+.research-intro{font-size:20px; line-height:1.6; max-width:780px; margin:0 0 40px}
+.themes{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+@media (max-width:860px){ .themes{grid-template-columns:1fr} }
+.theme{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:24px 24px 20px; display:flex; flex-direction:column}
+.theme p{margin:0 0 16px; font-size:17px}
+.theme .key{margin-top:auto; font-family:var(--ui); font-size:13px; color:var(--muted); border-top:1px solid var(--line); padding-top:12px}
+.theme .key b{font-weight:600; color:var(--ink); margin-right:4px}
+.theme .key a{margin-right:10px; white-space:nowrap}
+.also{margin-top:24px; color:var(--muted); font-size:17px; max-width:780px}
+
+figure.fig{margin:0 0 16px}
+.fig .plate{background:#fff; border-radius:10px; border:1px solid var(--line); height:170px; padding:12px}
+.fig img{width:100%; height:100%; object-fit:contain; display:block}
+.fig figcaption{font-family:var(--ui); font-size:12px; color:var(--faint); margin-top:6px}
+
+
+/* publications */
+.filters{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 24px}
+.filters button{font-family:var(--ui); font-size:13px; font-weight:500; border:1px solid var(--line); background:var(--surface); color:var(--muted); padding:6px 12px; border-radius:999px; cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--bg)}
+.pubyear{font-family:var(--ui); font-size:13px; font-weight:600; color:var(--faint); margin:24px 0 4px; letter-spacing:.06em}
+.pub{padding:12px 0; border-bottom:1px solid var(--line)}
+.pub:last-child{border-bottom:0}
+.pub .t{font-weight:600; font-size:18px; line-height:1.4}
+.pub .a{color:var(--muted); font-size:16px}
+.pub .a .me{color:var(--ink); font-weight:600}
+.pub .j{font-size:16px}
+.pub .j i{font-style:italic}
+.pub .acts{font-family:var(--ui); font-size:12px; margin-top:4px; display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+.badge{font-family:var(--ui); font-size:11px; font-weight:600; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:999px}
+.pubnote{font-family:var(--ui); font-size:14px; color:var(--muted); margin-top:24px}
+
+/* two-col lists */
+.cols{display:grid; grid-template-columns:1fr 1fr; gap:40px}
+@media (max-width:760px){ .cols{grid-template-columns:1fr; gap:24px} }
+.card{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px; margin-bottom:16px}
+.card .meta{font-family:var(--ui); font-size:13px; color:var(--muted); margin-top:4px}
+.card p{margin:8px 0 0; font-size:17px}
+ul.plain{list-style:none; padding:0; margin:0}
+ul.plain li{padding:8px 0; border-bottom:1px dashed var(--line)}
+ul.plain li:last-child{border-bottom:0}
+.small{font-family:var(--ui); font-size:13px; color:var(--muted)}
+
+/* talks */
+details{border:1px solid var(--line); border-radius:12px; background:var(--surface); margin-bottom:12px}
+summary{cursor:pointer; padding:14px 20px; font-family:var(--ui); font-weight:600; font-size:15px; list-style:none; display:flex; justify-content:space-between; align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+"; font-weight:400; font-size:20px; color:var(--faint)}
+details[open] summary::after{content:"–"}
+details .inner{padding:0 20px 16px}
+.talk{display:grid; grid-template-columns:72px 1fr; gap:12px; padding:8px 0; border-top:1px dashed var(--line); font-size:16px}
+.talk .y{font-family:var(--ui); font-size:13px; color:var(--faint); padding-top:2px}
+.talk .k{font-family:var(--ui); font-size:12px; color:var(--warm); font-weight:600; margin-left:6px; white-space:nowrap}
+.upcoming .talk{border-top:0}
+
+/* CV */
+.tl{list-style:none; padding:0; margin:0}
+.tl li{display:grid; grid-template-columns:130px 1fr; gap:16px; padding:10px 0; border-bottom:1px dashed var(--line)}
+.tl li:last-child{border-bottom:0}
+.tl .when{font-family:var(--ui); font-size:13px; color:var(--faint); padding-top:3px}
+.tl .what{font-size:17px}
+.tl .what span{display:block; color:var(--muted); font-size:15px}
+@media (max-width:640px){ .tl li{grid-template-columns:1fr; gap:0} }
+h3.sub{font-family:var(--ui); font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); margin:32px 0 8px; font-weight:600}
+h3.sub:first-child{margin-top:0}
+
+/* contact & footer */
+.contact{display:grid; grid-template-columns:1fr 1fr; gap:40px}
+@media (max-width:760px){ .contact{grid-template-columns:1fr; gap:16px} }
+address{font-style:normal}
+footer{border-top:1px solid var(--line); padding:24px 0 48px; font-family:var(--ui); font-size:13px; color:var(--faint)}
+</style>
+<script>
+  try{const t=localStorage.getItem('theme'); if(t) document.documentElement.dataset.theme=t;}catch(e){}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Federico Roccati</a>
+    <nav aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#talks">Talks</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>Federico Roccati</h1>
+        <p class="role"><strong>Assistant Professor of Physics</strong> · Quantum Theory Group<br>
+          Dipartimento di Fisica e Chimica – Emilio Segrè, Università degli Studi di Palermo</p>
+        <p class="lede">I am a theoretical physicist working on <em>open quantum systems</em>: light and matter coupled to structured environments, described by effective, often non-Hermitian, Hamiltonians.</p>
+        <p>My research spans non-Hermitian physics, waveguide quantum electrodynamics and giant atoms, topology, and open many-body systems. Before joining Palermo I was a Fulbright Research Scholar at Columbia University and a postdoc at the University of Luxembourg and the Max Planck Institute for the Science of Light.</p>
+        <div class="links">
+          <a class="chip" href="https://scholar.google.com/citations?user=IxH0E2oAAAAJ&hl=en">Google Scholar</a>
+          <a class="chip" href="https://arxiv.org/search/?searchtype=author&query=Roccati%2C+F">arXiv</a>
+          <a class="chip" href="https://orcid.org/0000-0002-6981-0613">ORCID</a>
+          <a class="chip" href="#contact">Email</a>
+          <a class="chip" href="https://quantum.unipa.it/">Quantum Theory Group</a>
+        </div>
+      </div>
+      <div class="portrait" id="portrait">
+        <img id="photo" src="img/foto.png" alt="Federico Roccati" width="240" height="300">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NEWS ============ -->
+<section id="news">
+  <div class="wrap">
+    <p class="kicker">News</p>
+    <ul class="news">
+      <li><time>Nov 2026</time><div>Talk at <a href="https://sites.google.com/view/phhqp2026/">PHHQP26</a>, Pseudo-Hermitian Hamiltonians and Quantum Physics, Erice (15–21 Nov).</div></li>
+      <li><time>2026</time><div>Guest Editor of the <em>Quantum Science and Technology</em> Focus Issue on <a href="https://iopscience.iop.org/collections/qst-251202-1016">Non-Hermitian Quantum Many-Body Physics</a>. Submissions welcome!</div></li>
+      <li><time>2026</time><div>Awarded the Italian National Habilitation (ASN) as Associate Professor in Theoretical Physics of Matter.</div></li>
+      <li><time>Sep 2026</time><div>Invited talks at <a href="https://sites.google.com/unitn.it/iqis2026/home">IQIS 2026</a> and <a href="https://eventi.unitn.it/it/dissipative-quantum-chaos-2026">Dissipative Quantum Chaos</a>, Trento.</div></li>
+      <li><time>2027</time><div>Co-organizing <a href="https://benasque.org/new_general/cgi-bin/years.pl?ano=2027">BLiNH2027</a>, Beyond Linearity: Frontiers in Non-Hermitian Many-Body Physics, Benasque (12–18 Sep 2027).</div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section id="research">
+  <div class="wrap">
+    <p class="kicker">Research</p>
+    <h2>What I work on</h2>
+    <p class="research-intro">Every quantum system is, to some extent, open: it exchanges energy, particles and information with its surroundings. I am interested in the new physics that emerges from this openness and in how it can be <em>engineered</em> rather than merely tolerated. My work sits at the interface between quantum optics, open quantum systems and condensed matter, and combines analytical tools (Green's functions, effective Hamiltonians, topological classification) with numerics, from exact diagonalization to tensor networks.</p>
+
+    <div class="themes">
+      <!-- 1 -->
+      <article class="theme">
+        <figure class="fig"><div class="plate"><img src="img/nonhermitian.png" alt="Hatano–Nelson chain with non-reciprocal hopping J(1±δ)" loading="lazy"></div><figcaption>Hatano–Nelson model</figcaption></figure>
+        <h3>Non-Hermitian physics &amp; open quantum systems</h3>
+        <p>Non-Hermitian Hamiltonians are an effective description of open quantum systems, for instance of Markovian dynamics conditioned on the absence of quantum jumps. They host phenomena with no Hermitian counterpart, such as <em>exceptional points</em>, where eigenvalues and eigenvectors coalesce, and the <em>non-Hermitian skin effect</em>, where an extensive number of eigenstates accumulates at the boundaries. I study how these effective descriptions relate to the full master-equation dynamics, what happens to quantum correlations across exceptional points, and how skin modes can be found exactly by recasting the boundary as an impurity problem.</p>
+        <div class="key"><b>Key papers</b>
+          <a href="https://doi.org/10.1142/S1230161222500044">OSID 2022</a>
+          <a href="https://doi.org/10.1103/PhysRevA.104.022215">PRA 2021</a>
+          <a href="https://doi.org/10.1088/2058-9565/abcfcc">QST 2021</a>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="theme">
+        <figure class="fig"><div class="plate"><img src="img/waveguide.png" alt="Standard vs Fibonacci waveguide QED: giant and local emitters with their atom-photon bound states" loading="lazy"></div><figcaption>From Bönsel, Kunst, Roccati, Quantum 2026</figcaption></figure>
+        <h3>Waveguide QED &amp; giant atoms</h3>
+        <p>When quantum emitters couple to a common photonic bath, photons mediate effective interactions between them, whose range, symmetry and (non-)reciprocity are inherited from the bath. I study how to design such baths: lossy, aperiodic (Fibonacci), fractal and interacting (Bose–Hubbard) photonic lattices. A second focus is <em>giant atoms</em>, emitters coupled to light at several distant points. Remarkably, the chirality of a giant atom controls its Markovianity: by tuning the coupling phases, it can enter an exactly Markovian regime irrespectively of the time delay between coupling points.</p>
+        <div class="key"><b>Key papers</b>
+          <a href="https://doi.org/10.1103/PhysRevLett.133.063603">PRL 2024</a>
+          <a href="https://doi.org/10.22331/q-2026-04-23-2081">Quantum 2026</a>
+          <a href="https://doi.org/10.1103/lsrq-19nw">PRR 2026</a>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="theme">
+        <figure class="fig"><div class="plate"><img src="img/topology.png" alt="Emitters on a photonic lattice; tracing out the bath yields effective bath-mediated interactions" loading="lazy"></div><figcaption>From Roccati et al., Nat. Commun. 2024</figcaption></figure>
+        <h3>Topology from photon-mediated interactions</h3>
+        <p>Topology protects boundary modes against disorder and imperfections. If atoms interact only through a photonic bath, which topology do they inherit? We proved general theorems linking the Hermitian and non-Hermitian topological invariants of the atoms to those of the bath, a <em>system–bath topological correspondence</em> that features topological preservation and reversal. Structured losses can also seed fully non-reciprocal interactions between emitters, implementing the Hatano–Nelson model irrespectively of the boundary conditions of the field.</p>
+        <div class="key"><b>Key papers</b>
+          <a href="https://doi.org/10.1038/s41467-024-46471-w">Nat. Commun. 2024</a>
+          <a href="https://doi.org/10.1364/OPTICA.443955">Optica 2022</a>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="theme">
+        <figure class="fig"><div class="plate"><img src="img/manybody.png" alt="Nearest- and next-nearest-neighbour spacing distributions: D-dimensional Poisson process and 2d Coulomb gas" loading="lazy"></div><figcaption>From Akemann et al., Phys. Rev. Research 2025</figcaption></figure>
+        <h3>Non-Hermitian many-body physics &amp; chaos</h3>
+        <p>In closed systems, interactions and disorder lead to quantum chaos or many-body localization, diagnosed through spectral statistics, eigenstates and dynamics. How do these notions change once the system is open? I introduced diagnostics based on the <em>singular value decomposition</em> to detect dissipative chaos and localization, studied how complex eigenvalue statistics respond to breaking Hermiticity and integrability, and showed with tensor-network simulations that a finite steady-state current survives where spectral indicators suggest non-Hermitian many-body localization.</p>
+        <div class="key"><b>Key papers</b>
+          <a href="https://doi.org/10.1103/PhysRevB.109.L140201">PRB 2024</a>
+          <a href="https://doi.org/10.1103/crwj-x7j8">PRR 2025</a>
+          <a href="https://arxiv.org/abs/2603.13526">Perspective 2026</a>
+        </div>
+      </article>
+    </div>
+    <p class="also">I also keep an eye on foundational questions: quantum correlations in classical-channel models of gravity, non-Hermitian deformations of quantum mechanics, and the quantization of the damped harmonic oscillator.</p>
+  </div>
+</section>
+
+<!-- ============ PUBLICATIONS ============ -->
+<section id="publications">
+  <div class="wrap">
+    <p class="kicker">Publications</p>
+    <h2>Selected publications</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filter by topic"></div>
+    <div id="pubs"></div>
+    <p class="pubnote">Complete list on <a href="https://scholar.google.com/citations?user=IxH0E2oAAAAJ&hl=en">Google Scholar</a> and <a href="https://orcid.org/0000-0002-6981-0613">ORCID</a>.</p>
+  </div>
+</section>
+
+<!-- ============ PROJECTS & SERVICE ============ -->
+<section id="projects">
+  <div class="wrap">
+    <p class="kicker">Projects &amp; Service</p>
+    <h2>Grants, projects and community</h2>
+    <div class="cols" style="margin-top:24px">
+      <div>
+        <h3 class="sub">Projects</h3>
+        <div class="card">
+          <h3>QOMBE: Quantum Optics in Many-Body Environments</h3>
+          <div class="meta">Principal Investigator · 2025–2028 · MUR <a href="https://www.gea.mur.gov.it/Bandi/YoungResearchersSOE2024">Young Researchers – Seal of Excellence</a></div>
+        </div>
+        <div class="card">
+          <h3>COST Action CA24109: Many-body Open Quantum Systems (QOpen)</h3>
+          <div class="meta">Science Communication Coordinator · 2025–2029 · <a href="https://www.cost.eu/actions/CA24109/">cost.eu</a></div>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub">Editorial</h3>
+        <ul class="plain">
+          <li>Guest Editor, <em>Quantum Science and Technology</em>, Focus Issue on <a href="https://iopscience.iop.org/collections/qst-251202-1016">Non-Hermitian Quantum Many-Body Physics</a></li>
+          <li>Editorial Board, <a href="https://iopscience.iop.org/journal/2399-6528"><em>Journal of Physics Communications</em></a></li>
+          <li>Editorial Board, <a href="https://www.sciltp.com/journals/np"><em>Nonequilibrium Physics</em></a></li>
+        </ul>
+        <h3 class="sub">Organization</h3>
+        <ul class="plain">
+          <li><a href="https://benasque.org/new_general/cgi-bin/years.pl?ano=2027">BLiNH2027</a>, Beyond Linearity: Frontiers in Non-Hermitian Many-Body Physics <span class="small">· Benasque, 2027</span></li>
+          <li><a href="https://blinh2025.univie.ac.at/">BLiNH2025</a>, Beyond Linearity: Frontiers in Non-Hermitian Many-Body Physics <span class="small">· Erice, 2025</span></li>
+          <li><a href="https://wqed20.weebly.com/">2nd Workshop on Waveguide QED</a>, local organizer <span class="small">· Palermo (online), 2020</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TALKS ============ -->
+<section id="talks">
+  <div class="wrap">
+    <p class="kicker">Talks &amp; Visits</p>
+    <h2>Talks</h2>
+    <details open class="upcoming"><summary>Upcoming</summary><div class="inner" id="talksUpcoming"></div></details>
+    <details><summary>Invited seminars &amp; colloquia</summary><div class="inner" id="talksSeminars"></div></details>
+    <details><summary>Conferences &amp; workshops</summary><div class="inner" id="talksConf"></div></details>
+    <details><summary>Schools</summary><div class="inner" id="talksSchools"></div></details>
+  </div>
+</section>
+
+<!-- ============ CV ============ -->
+<section id="cv">
+  <div class="wrap">
+    <p class="kicker">Curriculum</p>
+    <h2>CV</h2>
+    <div class="cols" style="margin-top:24px">
+      <div>
+        <h3 class="sub">Positions</h3>
+        <ul class="tl">
+          <li><div class="when">2025 – now</div><div class="what">Assistant Professor of Physics<span>Università degli Studi di Palermo, Italy</span></div></li>
+          <li><div class="when">2024 – 2025</div><div class="what">Postdoctoral Researcher<span>Max Planck Institute for the Science of Light, Erlangen · with Flore Kunst</span></div></li>
+          <li><div class="when">2024</div><div class="what">Fulbright Research Scholar<span>Columbia University, New York · with Ana Asenjo-Garcia</span></div></li>
+          <li><div class="when">2022 – 2024</div><div class="what">Postdoctoral Researcher<span>University of Luxembourg · with Aurelia Chenu</span></div></li>
+          <li><div class="when">2018 – 2022</div><div class="what">PhD in Physics<span>Università degli Studi di Palermo · advisor Francesco Ciccarello, co-advisor Fabio Bagarello</span></div></li>
+        </ul>
+        <h3 class="sub">Education</h3>
+        <ul class="tl">
+          <li><div class="when">2018</div><div class="what">MSc Theoretical and Mathematical Physics<span>LMU &amp; TU Munich, Germany</span></div></li>
+          <li><div class="when">2015</div><div class="what">MSc Mathematics<span>Università degli Studi di Torino</span></div></li>
+          <li><div class="when">2013</div><div class="what">BSc Mathematics<span>Università degli Studi di Palermo</span></div></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub">Awards &amp; grants</h3>
+        <ul class="tl">
+          <li><div class="when">2026</div><div class="what">Italian National Habilitation (ASN 2023–2025)<span>Associate Professor, Theoretical Physics of Matter (02/B2)</span></div></li>
+          <li><div class="when">2025</div><div class="what">Marie Skłodowska-Curie Postdoctoral Fellowship<span>HORIZON-MSCA-2024-PF-01</span></div></li>
+          <li><div class="when">2024</div><div class="what">MUR Young Researchers – Seal of Excellence<span>Funding for the QOMBE project</span></div></li>
+          <li><div class="when">2024</div><div class="what">Seal of Excellence<span>HORIZON-MSCA-2023-PF-01</span></div></li>
+          <li><div class="when">2023</div><div class="what">Fulbright Scholarship<span>U.S.–Italy Fulbright Commission</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <p class="kicker">Contact</p>
+    <div class="contact" style="margin-top:16px">
+      <address>
+        Dipartimento di Fisica e Chimica – Emilio Segrè<br>
+        Università degli Studi di Palermo<br>
+        Via Archirafi 36, 90123 Palermo, Italy
+      </address>
+      <div>
+        <p style="margin:0 0 12px">Email: <a id="mail" href="#">federico [dot] roccati [at] unipa [dot] it</a></p>
+        <div class="links" style="margin-top:0">
+          <a class="chip" href="https://scholar.google.com/citations?user=IxH0E2oAAAAJ&hl=en">Google Scholar</a>
+          <a class="chip" href="https://orcid.org/0000-0002-6981-0613">ORCID</a>
+          <a class="chip" href="http://www.linkedin.com/in/federico-roccati-885470108">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© Federico Roccati · Last updated November 2026</div></footer>
+
+<script>
+/* ---------- theme ---------- */
+document.getElementById('themeBtn').onclick=()=>{
+  const root=document.documentElement;
+  const dark=root.dataset.theme? root.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme= dark?'light':'dark';
+  try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+};
+
+/* ---------- photo: initials if img/foto.png is missing ---------- */
+(()=>{
+  const img=document.getElementById('photo');
+  img.onerror=()=>{document.getElementById('portrait').innerHTML='<span class="mono">FR</span>'};
+  if(img.complete && img.naturalWidth===0) img.onerror();
+})();
+
+/* ---------- email ---------- */
+(()=>{const u='federico.roccati', d='unipa.it', a=document.getElementById('mail');
+  a.textContent=u+'@'+d; a.href='mailto:'+u+'@'+d;})();
+
+/* ---------- publications ---------- */
+const TOPICS={nh:'Non-Hermitian',wqed:'Waveguide QED',topo:'Topology',mb:'Many-body & chaos',fnd:'Foundations'};
+const PUBS=[
+ {y:'Preprints',t:'Atom-Photon Bound States in Fractal Photonic Lattices: Localization Length and Anomalous Diffusion',a:'F. Bönsel, F. K. Kunst, F. Roccati',j:'arXiv:2605.23625',arxiv:'2605.23625',tags:['wqed']},
+ {y:2026,t:'Many-Body Quantum Optics in a Bose-Hubbard Waveguide',a:'F. Roccati',j:'<i>Phys. Rev. Research</i> <b>8</b>, L032022',doi:'10.1103/lsrq-19nw',arxiv:'2505.02892',tags:['wqed','mb']},
+ {y:2026,t:'Perspective: Interactions and Nonlinearity in Non-Hermitian Physics',a:'F. Roccati, F. Balducci',j:'<i>Nonequilibrium Physics</i> <b>1</b>, 1',arxiv:'2603.13526',tags:['nh','mb']},
+ {y:2026,t:'Fibonacci Waveguide Quantum Electrodynamics',a:'F. Bönsel, F. K. Kunst, F. Roccati',j:'<i>Quantum</i> <b>10</b>, 2081',doi:'10.22331/q-2026-04-23-2081',arxiv:'2507.06308',tags:['wqed']},
+ {y:2025,t:'Finite steady-state current defies non-Hermitian many-body localization',a:'P. Brighi, M. Ljubotina, F. Roccati, F. Balducci',j:'<i>Phys. Rev. Research</i> <b>7</b>, L042014',doi:'10.1103/crwj-x7j8',arxiv:'2504.02460',tags:['nh','mb']},
+ {y:2025,t:'Two transitions in complex eigenvalue statistics: Hermiticity and integrability breaking',a:'G. Akemann, F. Balducci, A. Chenu, P. Päßler, F. Roccati, R. Shir',j:'<i>Phys. Rev. Research</i> <b>7</b>, 013098',doi:'10.1103/PhysRevResearch.7.013098',arxiv:'2409.10625',tags:['nh','mb']},
+ {y:2024,t:'Controlling Markovianity with Chiral Giant Atoms',a:'F. Roccati, D. Cilluffo',j:'<i>Phys. Rev. Lett.</i> <b>133</b>, 063603',doi:'10.1103/PhysRevLett.133.063603',arxiv:'2402.15556',tags:['wqed']},
+ {y:2024,t:'Diagnosing non-Hermitian many-body localization and quantum chaos via singular value decomposition',a:'F. Roccati, F. Balducci, R. Shir, A. Chenu',j:'<i>Phys. Rev. B</i> <b>109</b>, L140201',doi:'10.1103/PhysRevB.109.L140201',arxiv:'2311.16229',tags:['nh','mb']},
+ {y:2024,t:'Hermitian and non-Hermitian topology from photon-mediated interactions',a:'F. Roccati, M. Bello, Z. Gong, M. Ueda, F. Ciccarello, A. Chenu, A. Carollo',j:'<i>Nat. Commun.</i> <b>15</b>, 2400',doi:'10.1038/s41467-024-46471-w',arxiv:'2303.00762',tags:['topo','wqed','nh'],badge:"Editors' Highlight"},
+ {y:2023,t:'Quantum correlations in dissipative gain-loss systems across exceptional points',a:'F. Roccati, A. Purkayastha, G. M. Palma, F. Ciccarello',j:'<i>Eur. Phys. J. Spec. Top.</i>',doi:'10.1140/epjs/s11734-023-00835-3',arxiv:'2211.09538',tags:['nh']},
+ {y:2023,t:'Non-Hermitian Hamiltonian deformations in quantum mechanics',a:'A. S. Matsoukas-Roubeas, F. Roccati, J. Cornelius, Z. Xu, A. Chenu, A. del Campo',j:'<i>J. High Energ. Phys.</i> <b>2023</b>, 60',doi:'10.1007/JHEP01(2023)060',arxiv:'2211.05437',tags:['nh','fnd']},
+ {y:2022,t:'Quantum correlations beyond entanglement in a classical-channel model of gravity',a:'F. Roccati, B. Militello, E. Fiordilino, R. Iaria, L. Burderi, T. Di Salvo, F. Ciccarello',j:'<i>Sci. Rep.</i> <b>12</b>, 17641',doi:'10.1038/s41598-022-22212-1',arxiv:'2205.15333',tags:['fnd']},
+ {y:2022,t:'Non-Hermitian physics and master equations',a:'F. Roccati, G. M. Palma, F. Ciccarello, F. Bagarello',j:'<i>Open Syst. Inf. Dyn.</i> <b>29</b>, 2250004',doi:'10.1142/S1230161222500044',arxiv:'2201.05367',tags:['nh'],badge:'Top downloaded 2024'},
+ {y:2022,t:'Exotic interactions mediated by a non-Hermitian photonic bath',a:'F. Roccati, S. Lorenzo, G. Calajò, G. M. Palma, A. Carollo, F. Ciccarello',j:'<i>Optica</i> <b>9</b>, 565',doi:'10.1364/OPTICA.443955',arxiv:'2109.13255',tags:['nh','wqed','topo']},
+ {y:2021,t:'Non-Hermitian skin effect as an impurity problem',a:'F. Roccati',j:'<i>Phys. Rev. A</i> <b>104</b>, 022215',doi:'10.1103/PhysRevA.104.022215',arxiv:'2105.01197',tags:['nh']},
+ {y:2021,t:'Quantum correlations in PT-symmetric systems',a:'F. Roccati, S. Lorenzo, G. M. Palma, G. T. Landi, M. Brunelli, F. Ciccarello',j:'<i>Quantum Sci. Technol.</i> <b>6</b>, 025005',doi:'10.1088/2058-9565/abcfcc',arxiv:'2002.11127',tags:['nh']},
+ {y:2019,t:'A no-go result for the quantum damped harmonic oscillator',a:'F. Bagarello, F. Gargano, F. Roccati',j:'<i>Phys. Lett. A</i> <b>383</b>, 2836',doi:'10.1016/j.physleta.2019.06.022',arxiv:'1906.05121',tags:['nh','fnd']},
+];
+(()=>{
+  const box=document.getElementById('pubs'), fl=document.getElementById('filters');
+  let active='all';
+  const mk=(k,label)=>{const b=document.createElement('button');b.textContent=label;b.dataset.k=k;b.setAttribute('aria-pressed',k===active);b.onclick=()=>{active=k;[...fl.children].forEach(c=>c.setAttribute('aria-pressed',c.dataset.k===k));render()};fl.appendChild(b)};
+  mk('all','All'); for(const k in TOPICS) mk(k,TOPICS[k]);
+  function render(){
+    box.innerHTML=''; let last=null;
+    for(const p of PUBS){
+      if(active!=='all' && !p.tags.includes(active)) continue;
+      if(p.y!==last){const h=document.createElement('div');h.className='pubyear';h.textContent=p.y;box.appendChild(h);last=p.y}
+      const d=document.createElement('div'); d.className='pub';
+      const authors=p.a.replace('F. Roccati','<span class="me">F. Roccati</span>');
+      const acts=[p.doi&&`<a href="https://doi.org/${p.doi}">Journal</a>`, p.arxiv&&`<a href="https://arxiv.org/abs/${p.arxiv}">arXiv</a>`, p.badge&&`<span class="badge">${p.badge}</span>`].filter(Boolean).join('');
+      d.innerHTML=`<div class="t">${p.t}</div><div class="a">${authors}</div><div class="j">${p.j}${typeof p.y==='number'?' ('+p.y+')':''}</div><div class="acts">${acts}</div>`;
+      box.appendChild(d);
+    }
+  }
+  render();
+})();
+
+/* ---------- talks ---------- */
+const UPCOMING=[
+ ['Nov 2026','<a href="https://sites.google.com/view/phhqp2026/">PHHQP26</a>, Pseudo-Hermitian Hamiltonians and Quantum Physics. Erice, Italy','Talk'],
+ ['Sep 2027','<a href="https://benasque.org/new_general/cgi-bin/years.pl?ano=2027">BLiNH2027</a>, Beyond Linearity: Frontiers in Non-Hermitian Many-Body Physics. Benasque, Spain','Organizer'],
+];
+const SEMINARS=[
+ ['2026','Quantum Information and Foundations Group, CSIC (Diego Porras). Madrid, Spain','Invited seminar'],
+ ['2026','Nathan Goldman &amp; Laurens Vanderstraeten group seminar (online)','Invited seminar'],
+ ['2026','NeuroSYNC, University of Cambridge. Cambridge, UK','Visit'],
+ ['2025','University of Messina (Salvatore Savasta). Messina, Italy','Seminar'],
+ ['2025','<a href="https://quantummatterpt.weebly.com/qmcolloquium.html">Quantum.Matter@PT</a>. Lisbon, Portugal','Colloquium'],
+ ['2025','Walther-Meißner-Institut (Peter Rabl). Garching, Germany','Seminar'],
+ ['2024','Friedrich-Alexander-Universität Erlangen-Nürnberg (Carolin Müller). Erlangen, Germany','Invited seminar'],
+ ['2024','Stony Brook University (Dominik Schneble). Stony Brook, NY, USA','Invited seminar'],
+ ['2024','Princeton University (Shinsei Ryu). Princeton, NJ, USA','Invited seminar'],
+ ['2024','Washington University (Kater Murch). St. Louis, MO, USA','Invited seminar'],
+ ['2024','Indiana University–Purdue University Indianapolis (Yogesh N. Joglekar). Indianapolis, IN, USA','Invited seminar'],
+ ['2024','University of Illinois Urbana-Champaign (Taylor Hughes). Champaign, IL, USA','Invited seminar'],
+ ['2024','Seton Hall University. South Orange, NJ, USA','Colloquium'],
+ ['2024','University of Rochester (Gabriel T. Landi). Rochester, NY, USA','Invited seminar'],
+ ['2024','Institut für Theoretische Physik, Universität Ulm (Martin Plenio). Ulm, Germany','Invited seminar'],
+ ['2023','University of Southern California, Khajavikhan Optics and Photonics Group. Los Angeles, CA, USA','Invited seminar'],
+ ['2022','Max Planck Institute of Quantum Optics (Ignacio Cirac). Garching, Germany','Invited seminar'],
+ ['2022','University of Luxembourg, <a href="https://chenulab.com/">Aurelia Chenu\'s group</a>. Luxembourg','Invited talk'],
+];
+const CONF=[
+ ['2026','<a href="https://eventi.unitn.it/it/dissipative-quantum-chaos-2026">Dissipative Quantum Chaos (DiQuaC)</a>. Trento, Italy','Invited talk'],
+ ['2026','<a href="https://sites.google.com/unitn.it/iqis2026/home">IQIS 2026</a>. Trento, Italy','Invited talk'],
+ ['2026','At the interface between gravity and quantum theory. Merano, Italy','Invited talk'],
+ ['2026','<a href="https://benasque.org/2026qsi/">Benasque Quantum Optics</a>. Benasque, Spain',''],
+ ['2026','<a href="https://www.chalmers.se/en/current/calendar/mc2-giant-atomic-emitters-2026/">3rd Int. Workshop on Quantum Optics with Giant Atomic Emitters</a>. Gothenburg, Sweden','Invited talk'],
+ ['2025','<a href="https://blinh2025.univie.ac.at/">BLiNH2025</a>. Erice, Italy','Organizer'],
+ ['2025','<a href="https://www.sif.it/attivita/congresso/111">Congresso Nazionale della SIF</a>. Palermo, Italy','Invited talk'],
+ ['2025','<a href="https://events.unibo.it/iqis-2025">IQIS 2025</a>. Bologna, Italy','Contributed talk'],
+ ['2025','<a href="https://wqed25.weebly.com/">4th Workshop on Waveguide QED</a>. Erice, Italy','Invited talk'],
+ ['2025','<a href="https://statphys29.org/">STATPHYS29</a>. Florence, Italy','Poster'],
+ ['2025','<a href="https://topophoto2025.dipc.org/">Topological Photonics 2025</a>. San Sebastián, Spain','Poster'],
+ ['2025','<a href="https://conferences.phys.unisa.it/topness25/index.html">TOPNESS25</a>. Erice, Italy','Talk'],
+ ['2025','<a href="https://www.theorie.physik.uni-muenchen.de/activities/workshops/simqudyn2025/index.html">SimQuDyn</a>. Munich, Germany','Poster'],
+ ['2024','<a href="https://www.chalmers.se/en/current/calendar/mc2-giant-atomic-emitters/">2nd Int. Workshop on Quantum Optics with Giant Atomic Emitters</a>. Gothenburg, Sweden','Invited talk'],
+ ['2024','<a href="https://www.qccc24.com/">Quantum Control and Computing Conference</a>. Berlin, Germany','Invited talk'],
+ ['2024','TRR 306 QuCoLiMa Annual Meeting. Kloster Banz, Germany','Talk'],
+ ['2024','<a href="https://www.ctqmat24.de/">CT.QMAT24</a>. Dresden, Germany','Contributed talk'],
+ ['2024','<a href="https://iqis2024.unical.it/">IQIS 2024</a>. Pizzo, Italy','Talk'],
+ ['2024','<a href="https://topo-cris-2024.sciencesconf.org/?lang=en">Topology and Correlations in Crystals and Quantum Matter</a>. Les Houches, France','Contributed talk'],
+ ['2024','<a href="https://meetings.aps.org/Meeting/MAR24/Session/Y14.9">APS March Meeting</a>. Minneapolis, MN, USA','Talk'],
+ ['2023','<a href="https://nes2023.sciencesconf.org/">NES2023</a>, New Trends in Nonequilibrium Statistical Mechanics. Erice, Italy','Invited talk'],
+ ['2023','<a href="https://iqis2023.it/">IQIS 2023</a>. Trieste, Italy','Poster'],
+ ['2023','<a href="https://eth-its.ethz.ch/activities/past-activities/2023/Giant-Atoms.html">Quantum Optics with Giant Atomic Emitters</a>. Zurich, Switzerland',''],
+ ['2023','<a href="http://wqed23.weebly.com/">3rd Workshop on Waveguide QED</a>. Erice, Italy','Talk'],
+ ['2023','<a href="https://meetings.aps.org/Meeting/MAR23/Session/T65.6">APS March Meeting</a>. Las Vegas, NV, USA','Talk'],
+ ['2022','<a href="https://www.omu.ac.jp/sci/pcem2022/">Int. Workshop on Physics and Chemistry of Electronic Materials</a>. Osaka, Japan (hybrid)','Keynote'],
+ ['2022','<a href="https://iqis2022.unipa.it/">IQIS 2022</a>. Palermo, Italy','Talk'],
+ ['2022','<a href="http://benasque.org/2022qsi/">Quantum Science: Implementations</a>. Benasque, Spain',''],
+ ['2022','<a href="https://indico.ictp.it/event/9803/overview">AQC2022</a>. ICTP Trieste, Italy',''],
+ ['2022','<a href="https://splds22.event.univ-lorraine.fr/">Statistical Physics and Low Dimensional Systems</a>. Pont-à-Mousson, France','Talk'],
+ ['2021','<a href="https://vphhqp.com/">Virtual PHHQP seminar</a> (<a href="https://youtu.be/SSnzkSJdPws">video</a>)','Talk'],
+ ['2021','<a href="https://indico.unina.it/event/52/">IQIS 2021</a>. Naples, Italy','Talk'],
+ ['2021','<a href="https://metaconferences.org/ocs/index.php/META21/META21">META 2021</a> (online)','Talk'],
+ ['2021','<a href="http://benasque.org/2021tmqo/">Topology meets Quantum Optics</a> (online)','Poster'],
+ ['2021','<a href="https://www.icts.res.in/program/nhp2021">Non-Hermitian Physics</a>, ICTS Bangalore (online)','Talk'],
+ ['2020','<a href="https://wqed20.weebly.com/">2nd Workshop on Waveguide QED</a> (online)','Poster, local organizer'],
+ ['2020','<a href="https://agenda.infn.it/event/23347/">Young IQIS 2020</a> (online)','Poster'],
+ ['2019','<a href="https://eventi.cnism.it/fismat2019">FisMat 2019</a>. Catania, Italy','Talk'],
+ ['2019','<a href="https://iqis2019.fisica.unimi.it/">IQIS 2019</a>. Milan, Italy','Poster'],
+ ['2019','<a href="http://tequantum.eu/?q=TriesteJuniorQuantumDays/2019">Trieste Junior Quantum Days</a>. Trieste, Italy','Contributed talk'],
+];
+const SCHOOLS=[
+ ['2022','<a href="https://www.sif.it/corsi/scuola_fermi/mmxxii/209">Enrico Fermi School, Course 209: Quantum Fluids of Light and Matter</a>. Varenna, Italy','Poster'],
+ ['2020','<a href="http://www.dm.unibo.it/~ruggeri/Ravello_2020.html">XLV Summer School on Mathematical Physics</a>. Ravello, Italy','Talk'],
+ ['2019','<a href="http://www.fpqp.eu:8080/?q=schoolfoundations/2019">School on Quantum Foundations dedicated to GianCarlo Ghirardi</a>','Talk'],
+];
+(()=>{
+  const fill=(id,rows)=>{document.getElementById(id).innerHTML=rows.map(([y,t,k])=>`<div class="talk"><div class="y">${y}</div><div>${t}${k?`<span class="k">${k}</span>`:''}</div></div>`).join('')};
+  fill('talksUpcoming',UPCOMING); fill('talksSeminars',SEMINARS); fill('talksConf',CONF); fill('talksSchools',SCHOOLS);
+})();
+
+/* ---------- active nav link ---------- */
+(()=>{
+  const links=[...document.querySelectorAll('.nav nav a')];
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-40% 0px -55% 0px'});
+  links.forEach(l=>{const s=document.querySelector(l.getAttribute('href')); s&&obs.observe(s)});
+})();
+</script>
+</body>
+</html>
